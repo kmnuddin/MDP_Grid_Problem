@@ -1,5 +1,7 @@
-﻿using MDP_Grid_Problem.Models;
+﻿using MDP_Grid_Problem.Algorithm;
+using MDP_Grid_Problem.Models;
 using System;
+using System.Collections.Generic;
 
 namespace MDP_Grid_Problem
 {
@@ -7,20 +9,20 @@ namespace MDP_Grid_Problem
     {
         static void Main(string[] args)
         {
-            var grid = Grid.Construct(5, 5, new Obstacle[] {
+            var grid = Grid.Construct(6, 5, new Obstacle[] {
                     new Obstacle(2,2),
                     new Obstacle(4,4)
             });
 
-            for(int i = 4; i > 0; i--)
-            {
-                for(int j = 0; j < 5; j++)
-                {
-                    Console.Write(grid[i,j].Reward);
-                    Console.Write(" ");
-                }
-                Console.Write("\n");
-            }
+            MDP mdp = new MDP(grid);
+
+            grid = mdp.ValueIteration();
+
+            //Grid.show_grid(grid);
+
+
         }
+
+       
     }
 }

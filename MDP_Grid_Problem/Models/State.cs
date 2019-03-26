@@ -9,7 +9,7 @@ namespace MDP_Grid_Problem.Models
         public double Reward { get; set; }
         public double Utility { get; set; }
 
-        public State(double reward, double utility, Type stateType)
+        public State(double reward, double utility, Type? stateType)
         {
             Reward = reward;
             Utility = utility;

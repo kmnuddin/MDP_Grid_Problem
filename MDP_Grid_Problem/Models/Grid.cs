@@ -33,5 +33,22 @@ namespace MDP_Grid_Problem.Models
                 grid[o.X - 1, o.Y - 1] = new State(0, 0, State.Type.Obstacle);
             }
         }
+
+        public static void show_grid(State[,] grid)
+        {
+            int m = grid.GetLength(0);
+            int n = grid.GetLength(1);
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(grid[i, j].Utility);
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+            }
+
+        }
     }
 }
